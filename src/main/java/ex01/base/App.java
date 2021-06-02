@@ -1,4 +1,5 @@
 package ex01.base;
+import java.util.Scanner;
 /*
 Exercise 1 - Saying Hello
 Create a program that prompts for your name and prints a greeting using your name.
@@ -14,4 +15,30 @@ Write a version of the program that displays different greetings for different p
 Write a version of the program that displays the greeting in a GUI window.
  */
 public class App {
+    static Scanner in = new Scanner(System.in);
+
+    public static void main(String[] args){
+        App myApp = new App();
+
+        String name = myApp.readName();
+
+        String outputString = myApp.generateOutputString(name);
+
+        printOutput(outputString);
+
+    }
+
+    private static void printOutput(String outputString) {
+        System.out.println(outputString);
+    }
+
+    private static String generateOutputString(String name) {
+       return "Hello, " + name + ", nice to meet you!";
+    }
+
+    private static String readName() {
+        System.out.print("What is your name? ");
+        return in.nextLine();
+    }
+
 }
